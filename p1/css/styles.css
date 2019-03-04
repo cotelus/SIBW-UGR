@@ -25,6 +25,14 @@ h2 {
     font-size: 1.6rem;
 }
 
+h3 {
+    font-size: 2.8rem;
+}
+
+h4 {
+    font-size: 0.9rem;
+}
+
 a{
     color:#333;
     text-decoration: none;
@@ -79,6 +87,8 @@ header {
     margin-left: 2rem;
     text-align: center;
 }
+
+
 
 
 /*
@@ -202,3 +212,15 @@ footer {
 ESTILOS eventos-principal (evento.html)
 -------------------------------------------
 */
+
+#event-imgs{
+    display: inline-block;
+}
+
+.event-item{
+    width: 180px;
+    height: 110px;
+}
+
+
+
