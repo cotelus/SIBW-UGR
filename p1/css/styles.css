@@ -181,6 +181,7 @@ ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
 #widgets-enlaces-interes{
     text-decoration: underline;
     text-align: left;
+    font-size: 1.5rem;
 }
 
 
@@ -298,6 +299,3 @@ ESTILOS eventos-principal (evento.html)
     width: 180px;
     height: 110px;
 }
-
-
-
