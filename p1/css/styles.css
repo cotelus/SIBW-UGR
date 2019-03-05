@@ -6,6 +6,7 @@ html, body {
     height: 100%;
     font-family: "Roboto", sans-serif;
     color: #333333;
+    //background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c0/Titanfall_at_Gamescom_2013_(9591148650).jpg");
 }
 
 div, section, aside, article {
@@ -55,10 +56,10 @@ header {
     -webkit-box-shadow: 0 0 5px 1px rgba(85, 85, 85, 0.23);
     -moz-box-shadow: 0 0 5px 1px rgba(85, 85, 85, 0.23);
     box-shadow: 0 0 5px 1px rgba(85, 85, 85, 0.23);
-    padding: 15px;
+    padding-bottom: 15px;
     display: flex;
     width:1000px;
-    margin: 0 auto;
+    margin: 15px auto;
 }
 
 #brand img{
@@ -68,6 +69,7 @@ header {
     max-width: 150px;
     border: 0 none;
     outline: 0;
+    padding:15px;
 }
 
 #header-menu li {
@@ -89,22 +91,30 @@ ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
 */
 #main{
 	margin: 0 auto;
+    margin-top: 30px;
 	width: 1000px;
-	padding: 15px;
+	padding-top: 15px;
     display: flex;
+    background-color: #f3f3f3;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0 none;
+    -webkit-box-shadow: 0 0 5px 1px rgba(85, 85, 85, 0.23);
+    -moz-box-shadow: 0 0 5px 1px rgba(85, 85, 85, 0.23);
+    box-shadow: 0 0 5px 1px rgba(85, 85, 85, 0.23);
 }
 .main-section{
     width: 750px;
     float: right;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
 }
 
 .single-event img{
     width: 230px;
-    margin: 15px;
     height: 150px;
     padding: 0;
 }
@@ -112,6 +122,7 @@ ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
 .single-event{
     margin-top: 1rem;
     margin-left: 1rem;
+    margin-bottom: 1rem;
     display: inline-block;
     float: left;
     width : 230px;
@@ -155,6 +166,11 @@ ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
 .embedded-video{
     width: 180px;
     height: 110px;
+}
+
+#widgets-enlaces-interes{
+    text-decoration: underline;
+    text-align: left;
 }
 
 
@@ -222,8 +238,40 @@ ESTILOS politica de privacidad y aviso legal (privacy.html & legalAdvice.html)
     color:#555;
     text-decoration: underline;
 }
+
+/*
+---------------------------------------------
+ESTILOS contacto (contacto.html)
+-------------------------------------------
+*/
+#contacto{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 15px;
+    display: flex;
 }
 
+#contacto-map {
+    width: 80%;
+    float: right;
+    display: block;
+}
+#contacto-map h2{
+    text-decoration: underline;
+}
+
+#contacto-personas{
+    display: inline-block;
+    float: left;
+}
+
+#contacto-personas h2{
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+#contacto-personas h3{
+    margin-top: 0 auto;
+}
 
 
 /*
