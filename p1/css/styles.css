@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: "Georgia", serif;
+    font-family: Telefonica, sans-serif;
     color: #333333;
 }
 
@@ -263,7 +263,7 @@ ESTILOS eventos-principal (evento.html)
     width: 250px;
     height: 360px;
     float:right;
-    margin-top: 10px; 
+    margin-top: 0px; 
 }
 .widget-image{
     border: white 10px solid;
@@ -288,6 +288,7 @@ ESTILOS eventos-principal (evento.html)
     align-items: flex-top;
     justify-content: left;
     flex-wrap: wrap;
+    font-family: Georgia, serif; 
 }
 
 #brand-print img{
@@ -313,3 +314,7 @@ ESTILOS eventos-principal (evento.html)
     padding-top: -15px;
 }
 
+.img-print{
+    border-radius: 250px 250px 250px 250px;
+    max-width: 50px;
+}
