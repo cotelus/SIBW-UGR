@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: "Roboto", sans-serif;
+    font-family: "Georgia", serif;
     color: #333333;
 }
 
@@ -14,7 +14,7 @@ div, section, aside, article {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway", sans-serif;
+    font-family: serif;
 }
 
 h1 {
@@ -41,6 +41,12 @@ a{
 ul{
     padding-left:1rem;
 }
+
+strong{
+    color:#E79F27;
+}
+
+
 
 
 /*
@@ -241,15 +247,54 @@ ESTILOS politica de privacidad y aviso legal (privacy.html & legalAdvice.html)
 ESTILOS eventos-principal (evento.html)
 -------------------------------------------
 */
-
-#event-imgs{
-    display: inline-block;
+#event-title {
+    margin-left: 0 auto;
+    text-align: left;
 }
-
-.event-item{
+.main-section-event{
+    width: 750px;
+    float: right;
+    display: flex;
+    align-items: flex-top;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+#widgets-event{
+    width: 250px;
+    height: 360px;
+    float:right;
+    margin-top: 60px; 
+}
+.widget-image{
+    border: white 10px solid;
     width: 180px;
-    height: 110px;
+  
+}    
+.image-event{
+    max-width: 180px;
+    max-height: 180px;
+    display: center;
 }
 
+#event-social li {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.6rem 0.8rem;
+}
+.main-section-event-print{
+    width: 1000px;
+    float: right;
+    display: flex;
+    align-items: flex-top;
+    justify-content: left;
+    flex-wrap: wrap;
+}
 
-
+#brand-print img{
+    border-radius: 150px 150px 150px 150px;
+    -moz-border-radius: 150px 150px 150px 150px;
+    -webkit-border-radius: 150px 150px 150px 150px;
+    max-width: 150px;
+    border: 0 none;
+    outline: 0;
+}
