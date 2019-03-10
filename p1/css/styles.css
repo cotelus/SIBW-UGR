@@ -4,8 +4,9 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: "Georgia", serif;
+    font-family: "Roboto", sans-serif;
     color: #333333;
+    //background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c0/Titanfall_at_Gamescom_2013_(9591148650).jpg");
 }
 
 
@@ -15,7 +16,7 @@ div, section, aside, article {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: serif;
+    font-family: "Raleway", sans-serif;
 }
 
 h1 {
@@ -41,10 +42,6 @@ a{
 
 ul{
     padding-left:1rem;
-}
-
-strong{
-    color:#E79F27;
 }
 
 
@@ -149,29 +146,35 @@ ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
     */
 
 #widgets{
-	width: 250px;
-	float:left;
-	display: inline-block;
+    width: 250px;
+    float:left;
+    display: inline-block;
 }
 
 .widget-logo{
-	max-width: 75px;
-	max-height: 75px;
+    max-width: 75px;
+    max-height: 75px;
 }
 
 .widget-item{
-	display: inline-block;
+    display: inline-block;
 }
 
 .widget-item h5{
-	margin: 0 auto;
-	margin-bottom: 45px;
+    margin: 0 auto;
+    margin-bottom: 45px;
     font-weight: bold;
 }
 
 .embedded-video{
     width: 180px;
     height: 110px;
+}
+
+#widgets-enlaces-interes{
+    text-decoration: underline;
+    text-align: left;
+    font-size: 1.5rem;
 }
 
 
@@ -239,6 +242,40 @@ ESTILOS politica de privacidad y aviso legal (privacy.html & legalAdvice.html)
     color:#555;
     text-decoration: underline;
 }
+
+
+/*
+---------------------------------------------
+ESTILOS contacto (contacto.html)
+-------------------------------------------
+*/
+#contacto{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 15px;
+    display: flex;
+}
+
+#contacto-map {
+    width: 80%;
+    float: right;
+    display: block;
+}
+#contacto-map h2{
+    text-decoration: underline;
+}
+
+#contacto-personas{
+    display: inline-block;
+    float: left;
+}
+
+#contacto-personas h2{
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+#contacto-personas h3{
+    margin-top: 0 auto;
 }
 
 
