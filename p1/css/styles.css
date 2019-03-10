@@ -4,11 +4,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-<<<<<<< HEAD
-    font-family: Telefonica, sans-serif;
-=======
+    //font-family: Telefonica, sans-serif;
     font-family: "Roboto", sans-serif;
->>>>>>> 108b172160d4750d0a44a44be686d9b3720d3d9f
     color: #333333;
     //background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c0/Titanfall_at_Gamescom_2013_(9591148650).jpg");
 }
@@ -401,3 +398,6 @@ ESTILOS eventos-imprimir (evento-imprimir.html)
     border-style: dotted;
 }
 
+.text-print p{
+    font-family: Telefonica, sans-serif;
+}
