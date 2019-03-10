@@ -263,7 +263,7 @@ ESTILOS eventos-principal (evento.html)
     width: 250px;
     height: 360px;
     float:right;
-    margin-top: 60px; 
+    margin-top: 10px; 
 }
 .widget-image{
     border: white 10px solid;
@@ -297,4 +297,56 @@ ESTILOS eventos-principal (evento.html)
     max-width: 150px;
     border: 0 none;
     outline: 0;
+}
+
+.social-list {
+    display: -webkit-flex;
+    display: flex;
+    height: 100%;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.event{
+    padding-top: -15px;
+}
+
+div.widget-image span{
+
+ line-height:normal;
+
+ font-size:11px;
+
+ display:table-caption;
+
+ margin:0;
+
+ padding:0;
+
+ background:#646464;
+
+ color:white;
+
+ font-style:italic;
+
+ text-align:center;
+
+ position:relative;
+
+ height:0;
+
+}
+
+div.widget-image span span{
+
+ background:rgba(0, 0, 0, 0.4);
+
+ display:block;
+
+ padding:3px;
+
+ text-shadow:0 0 15px white;
+
 }
