@@ -358,3 +358,41 @@ ESTILOS eventos-principal (evento.html)
     padding-top: -15px;
 }
 
+/*
+---------------------------------------------
+ESTILOS eventos-imprimir (evento-imprimir.html)
+-------------------------------------------
+*/
+
+#brand-print img{
+    border-radius: 150px 150px 150px 150px;
+    -moz-border-radius: 150px 150px 150px 150px;
+    -webkit-border-radius: 150px 150px 150px 150px;
+    max-width: 150px;
+    border: 0 none;
+    outline: 0;
+    float: right;
+    margin-left: 2rem;
+}
+
+#page-title-print {
+    margin-left: 2rem;
+    text-align: right;
+}
+
+#header-container-print{
+    float: right;
+    margin-left: 11rem;
+}
+
+#header-print{
+    border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    background-color: white;
+    box-shadow: none;
+    border-color: black;
+    border-bottom: 0.2rem;
+    border-style: dotted;
+}
+
