@@ -478,7 +478,11 @@ ESTILOS formulario comentarios
     margin-top: 30px;
     margin-bottom: 15px;
 }
-
+/*
+---------------------------------------------
+ESTILOS formulario comentarios
+---------------------------------------------
+*/
 #add-comment h4{
     text-align: center;
 }
@@ -492,4 +496,31 @@ ESTILOS formulario comentarios
     margin-top: 30px;
     min-height: 150px;
     min-width: 100%;
+}
+
+/*
+---------------------------------------------
+ESTILOS barra de etiquetas
+---------------------------------------------
+*/
+
+#tag-bar li {
+    display: inline-block;    
+    padding: 0.1rem 0.1rem;
+    vertical-align: top;
+}
+
+.tag img{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    margin-right: 0.3rem;
+}
+
+.tag{     
+    margin-right: 0.1rem;
+}
+
+.tag a{
+    color: #878787;
 }
