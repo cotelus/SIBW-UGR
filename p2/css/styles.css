@@ -179,6 +179,47 @@ ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
     font-size: 1.5rem;
 }
 
+.widget-tag{
+    line-height: 16px;
+    padding: 7px 12px;
+    font-size: 12px !important;
+    font-weight: 500;
+    margin: 5px 5px;
+    min-width: 18px;
+    width: auto;
+    color: #444;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.widget-tag-title{
+    content: '';
+    width: 80%;
+    height: 3px;
+    background-color: #e6e6e6;
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.tag-title{
+    border: none;
+    color: #101010;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 28px;
+    background: #fff;
+    padding-right: 5px;
+    display: inline-block;
+}
+
+
 
 
 /*
