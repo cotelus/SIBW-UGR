@@ -402,3 +402,94 @@ ESTILOS eventos-imprimir (evento-imprimir.html)
 .text-print p{
     font-family: Telefonica, sans-serif;
 }
+
+
+
+/*
+---------------------------------------------
+ESTILOS boton comentarios
+---------------------------------------------
+*/
+
+.active-comment-button button{
+    right:442px !important;
+    top:0;
+}
+
+#comment-button button{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+#comment-button button img{
+    max-height: 30px;
+    max-width: 30px;
+}
+/*
+---------------------------------------------
+ESTILOS barra comentarios
+---------------------------------------------
+*/
+
+#comment-bar{
+    padding:1rem 1.3rem;
+    height:100%;
+    width:400px;
+    position: fixed;
+    display: none;
+    right:0;
+    top:0;
+    background-color:#f3f3f3;
+
+    -webkit-box-shadow: -4px 3px 25px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px 3px 25px -2px rgba(0,0,0,0.75);
+    box-shadow: -4px 3px 25px -2px rgba(0,0,0,0.75);
+}
+.comment-bar-active{
+    display: block !important;
+}
+
+#comment-bar h3{
+    text-align: center;
+    border-bottom: solid 1px #ffffff;
+}
+
+/*
+---------------------------------------------
+ESTILOS seccion comentarios
+---------------------------------------------
+*/
+.comment-section{
+    max-height: 30%;
+    overflow-y:auto
+}
+
+.comment{
+    border : solid 2px #ffffff;
+}
+
+/*
+---------------------------------------------
+ESTILOS formulario comentarios
+---------------------------------------------
+*/
+#add-comment{
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+#add-comment h4{
+    text-align: center;
+}
+
+#add-comment input{
+    width: 100%;
+    margin-top: 10px;
+}
+
+#add-comment textarea{
+    margin-top: 30px;
+    min-height: 150px;
+    min-width: 100%;
+}
