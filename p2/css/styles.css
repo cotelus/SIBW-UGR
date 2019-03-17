@@ -529,7 +529,7 @@ ESTILOS formulario comentarios
 }
 
 #add-comment input{
-    width: 100%;
+    width: 96%;
     margin-top: 10px;
 }
 
@@ -564,4 +564,13 @@ ESTILOS barra de etiquetas
 
 .tag a{
     color: #878787;
+}
+
+.main-section-tagged{
+    width: 750px;
+    float: right;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    flex-wrap: wrap-reverse;
 }
