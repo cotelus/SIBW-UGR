@@ -1,5 +1,6 @@
 var comments_displayed = false;
 forbiddenWord = "";
+index = 0;
 
 var word_set =[
     "sibw",
@@ -89,23 +90,34 @@ function itsCorrectEmail(email){
 function addStringtoForbidden(event){
     var key = String.fromCharCode(event.keyCode).toLowerCase();
     var re2 = /[a-zA-Z]/;
+    var text = document.getElementById("message");
     
     if(re2.test(key)){
         forbiddenWord += key;
     }
     else{
-        console.log(forbiddenWord);
-        checkForbiddenWord(forbiddenWord);        
-        forbiddenWord = "";
+        //console.log(forbiddenWord);
+        if(key === " " || key === "."){
+            checkForbiddenWord(forbiddenWord);        
+            forbiddenWord = "";
+        }
+        if(event.keyCode === 8){
+            forbiddenWord = forbiddenWord.substring(0, forbiddenWord.length - 1);
+        }
+        if(event.keyCode === 10){
+            forbiddenWord = "";
+        }
     }
+
+    index = text.value.length;
 }
 
 // Comprueba si la palabra pertenece a las palabras prohibidas
 function checkForbiddenWord(word){
     var i;
     for(i = 0; i < word_set.length; i++){
-        if(word === word_set[i]  ){
-            censorWord(word);
+        if(word === word_set[i]  && (word.length === word_set[i].length)){
+            censorWord(word, index);
         }
 
     }
@@ -120,7 +132,10 @@ function censorWord(word){
         newWord += "*";
     }
 
-    var res = text.value.replace(word, newWord);
+    //var res = text.value.replace(word, newWord);
+
+    var res = text.value.substring(0, index - word.length) + newWord + " ";
+
 
     text.value = res;
 }
