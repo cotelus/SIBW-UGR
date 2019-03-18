@@ -87,11 +87,15 @@ function itsCorrectEmail(email){
 //              1.- Si la tecla pulsada no es el espacio, almacena la tecla
 //              2.- Si la tecla pulsada es el espacio, comprueba el string que haya almacenado
 function addStringtoForbidden(event){
-    if(event.keyCode != 32){
-        forbiddenWord += String.fromCharCode(event.keyCode).toLowerCase();
+    var key = String.fromCharCode(event.keyCode).toLowerCase();
+    var re2 = /[a-zA-Z]/;
+    
+    if(re2.test(key)){
+        forbiddenWord += key;
     }
     else{
-        checkForbiddenWord(forbiddenWord);
+        console.log(forbiddenWord);
+        checkForbiddenWord(forbiddenWord);        
         forbiddenWord = "";
     }
 }
@@ -100,9 +104,10 @@ function addStringtoForbidden(event){
 function checkForbiddenWord(word){
     var i;
     for(i = 0; i < word_set.length; i++){
-        if(word == word_set[i]  ){
+        if(word === word_set[i]  ){
             censorWord(word);
         }
+
     }
 }
 
