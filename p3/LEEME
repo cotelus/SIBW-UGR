@@ -3,3 +3,7 @@
 	* vagrant ssh (para conectarte al server)
 	
 2.- TODO lo que haya dentro de la carpeta server, se va a copiar en la carpeta /vagrant de la máquina virtual ( es una fichero común )
+
+3.- El servidor está ya configurado para que cargue el index que haya en la carpeta /vagrand/html 
+
+4.- Desde un navegador web en la host, ve a "localhost:8080" y se deberia conectar al servidor
