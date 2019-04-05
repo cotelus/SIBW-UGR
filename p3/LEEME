@@ -1,0 +1,5 @@
+1.- Dentro de la carpeta server:
+	* vagrant up (para levantar el server)
+	* vagrant ssh (para conectarte al server)
+	
+2.- TODO lo que haya dentro de la carpeta server, se va a copiar en la carpeta /vagrant de la máquina virtual ( es una fichero común )
