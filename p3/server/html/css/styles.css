@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto|Roboto+Mono');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    //font-family: Telefonica, sans-serif;
+    font-family: "Roboto", sans-serif;
+    color: #333333;
+    //background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c0/Titanfall_at_Gamescom_2013_(9591148650).jpg");
+}
+
+
+div, section, aside, article {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 2.8rem;
+    margin: 11px;
+}
+
+h4 {
+    font-size: 0.9rem;
+}
+
+a{
+    color:#333;
+    text-decoration: none;
+}
+
+ul{
+    padding-left:1rem;
+}
+
+
+
+
+/*
+---------------------------------------------
+ESTILOS HEADER (principal.html y siguientes)
+---------------------------------------------
+*/
+
+#container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #f3f3f3;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0 none;
+    -webkit-box-shadow: 0 0 5px 1px rgba(85, 85, 85, 0.23);
+    -moz-box-shadow: 0 0 5px 1px rgba(85, 85, 85, 0.23);
+    box-shadow: 0 0 5px 1px rgba(85, 85, 85, 0.23);
+    padding: 15px;
+    display: flex;
+    width:1000px;
+    margin: 0 auto;
+}
+
+#brand img{
+	border-radius: 150px 150px 150px 150px;
+    -moz-border-radius: 150px 150px 150px 150px;
+    -webkit-border-radius: 150px 150px 150px 150px;
+    max-width: 150px;
+    border: 0 none;
+    outline: 0;
+}
+
+#header-menu li {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.6rem 0.8rem;
+}
+
+#page-title {
+    margin-left: 2rem;
+    text-align: center;
+}
+
+
+
+
+/*
+---------------------------------------------
+ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
+---------------------------------------------
+*/
+#main{
+	margin: 0 auto;
+	width: 1000px;
+	padding: 15px;
+    display: flex;
+}
+.main-section{
+    width: 750px;
+    float: right;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.single-event img{
+    width: 230px;
+    margin: 15px;
+    height: 150px;
+    padding: 0;
+}
+
+.single-event{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    display: inline-block;
+    float: left;
+    width : 230px;
+    display: block;
+    padding: 0;
+}
+
+.event-link{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+    /* 
+    ---------------
+    BARRA LATERAL 
+    ---------------
+    */
+
+#widgets{
+    width: 250px;
+    float:left;
+    display: inline-block;
+}
+
+.widget-logo{
+    max-width: 75px;
+    max-height: 75px;
+}
+
+.widget-item{
+    display: inline-block;
+}
+
+.widget-item h5{
+    margin: 0 auto;
+    margin-bottom: 45px;
+    font-weight: bold;
+}
+
+.embedded-video{
+    width: 180px;
+    height: 110px;
+}
+
+#widgets-enlaces-interes{
+    text-decoration: underline;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.widget-tag{
+    line-height: 16px;
+    padding: 7px 12px;
+    font-size: 12px !important;
+    font-weight: 500;
+    margin: 5px 5px;
+    min-width: 18px;
+    width: auto;
+    color: #444;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.widget-tag-title{
+    content: '';
+    width: 80%;
+    height: 3px;
+    background-color: #e6e6e6;
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.tag-title{
+    border: none;
+    color: #101010;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 28px;
+    background: #fff;
+    padding-right: 5px;
+    display: inline-block;
+}
+
+
+
+
+/*
+---------------------------------------------
+ESTILOS FOOTER (principal.html y siguientes)
+---------------------------------------------
+*/
+footer {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#footer-menu {
+    margin-top: 2rem;
+}
+
+#footer-menu li {
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+#footer-menu li:after {
+    content: " |"
+}
+
+#footer-menu li:last-child:after {
+    content: ""
+}
+#footer-menu a:hover {
+    color:#555;
+    text-decoration: underline;
+}
+
+#by-text {
+    font-style: italic;
+}
+
+
+/*
+---------------------------------------------
+ESTILOS politica de privacidad y aviso legal (privacy.html & legalAdvice.html)
+-------------------------------------------
+*/
+
+#politica-privacidad{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 15px;
+    display: block;
+}
+
+#legal-advice{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 15px;
+    display: block;
+}
+
+#legal-advice a:hover{
+    color:#555;
+    text-decoration: underline;
+}
+
+
+/*
+---------------------------------------------
+ESTILOS contacto (contacto.html)
+-------------------------------------------
+*/
+#contacto{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 15px;
+    display: flex;
+}
+
+#contacto-map {
+    width: 80%;
+    float: right;
+    display: block;
+}
+#contacto-map h2{
+    text-decoration: underline;
+}
+
+#contacto-personas{
+    display: inline-block;
+    float: left;
+}
+
+#contacto-personas h2{
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+#contacto-personas h3{
+    margin-top: 0 auto;
+}
+
+
+
+/*
+---------------------------------------------
+ESTILOS eventos-principal (evento.html)
+-------------------------------------------
+*/
+#event-title {
+    margin-left: 0 auto;
+    text-align: left;
+}
+.main-section-event{
+    width: 750px;
+    float: right;
+    display: flex;
+    align-items: flex-top;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+#widgets-event{
+    width: 250px;
+    height: 400px;
+    float:right;
+    margin-top: 0px; 
+}
+.widget-image{
+    border: white 10px solid;
+    width: 180px;
+  
+}    
+.image-event{
+    max-width: 180px;
+    max-height: 180px;
+    display: center;
+}
+
+#event-social li {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.6rem 0.8rem;
+}
+
+.menu-item img{
+    width: 3.5rem;
+    height: 3.5rem;
+    display: inline-flex;
+}
+
+.main-section-event-print{
+    width: 1000px;
+    float: right;
+    display: flex;
+    align-items: flex-top;
+    justify-content: left;
+    flex-wrap: wrap;
+    font-family: Georgia, serif; 
+}
+
+#brand-print img{
+    border-radius: 150px 150px 150px 150px;
+    -moz-border-radius: 150px 150px 150px 150px;
+    -webkit-border-radius: 150px 150px 150px 150px;
+    max-width: 150px;
+    border: 0 none;
+    outline: 0;
+}
+
+.social-list {
+    display: -webkit-flex;
+    display: flex;
+    height: 100%;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.event{
+    padding-top: -15px;
+}
+
+/*
+---------------------------------------------
+ESTILOS eventos-imprimir (evento-imprimir.html)
+-------------------------------------------
+*/
+
+#brand-print img{
+    border-radius: 150px 150px 150px 150px;
+    -moz-border-radius: 150px 150px 150px 150px;
+    -webkit-border-radius: 150px 150px 150px 150px;
+    max-width: 150px;
+    border: 0 none;
+    outline: 0;
+    float: right;
+    margin-left: 2rem;
+}
+
+#page-title-print {
+    margin-left: 2rem;
+    text-align: right;
+}
+
+#header-container-print{
+    float: right;
+    margin-left: 11rem;
+}
+
+#header-print{
+    border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    background-color: white;
+    box-shadow: none;
+    border-color: black;
+    border-bottom: 0.2rem;
+    border-style: dotted;
+}
+
+.text-print p{
+    font-family: Telefonica, sans-serif;
+}
+
+
+
+/*
+---------------------------------------------
+ESTILOS boton comentarios
+---------------------------------------------
+*/
+
+.active-comment-button button{
+    right:442px !important;
+    top:0;
+}
+
+#comment-button button{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+#comment-button button img{
+    max-height: 30px;
+    max-width: 30px;
+}
+/*
+---------------------------------------------
+ESTILOS barra comentarios
+---------------------------------------------
+*/
+
+#comment-bar{
+    padding:1rem 1.3rem;
+    height:100%;
+    width:400px;
+    position: fixed;
+    display: none;
+    right:0;
+    top:0;
+    background-color:#f3f3f3;
+
+    -webkit-box-shadow: -4px 3px 25px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px 3px 25px -2px rgba(0,0,0,0.75);
+    box-shadow: -4px 3px 25px -2px rgba(0,0,0,0.75);
+}
+.comment-bar-active{
+    display: block !important;
+}
+
+#comment-bar h3{
+    text-align: center;
+    border-bottom: solid 1px #ffffff;
+}
+
+/*
+---------------------------------------------
+ESTILOS seccion comentarios
+---------------------------------------------
+*/
+.comment-section{
+    max-height: 30%;
+    overflow-y:auto
+}
+
+.comment{
+    border : solid 2px #ffffff;
+}
+
+/*
+---------------------------------------------
+ESTILOS formulario comentarios
+---------------------------------------------
+*/
+#add-comment{
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+/*
+---------------------------------------------
+ESTILOS formulario comentarios
+---------------------------------------------
+*/
+#add-comment h4{
+    text-align: center;
+}
+
+#add-comment input{
+    width: 96%;
+    margin-top: 10px;
+}
+
+#add-comment textarea{
+    margin-top: 30px;
+    min-height: 150px;
+    min-width: 100%;
+}
+
+/*
+---------------------------------------------
+ESTILOS barra de etiquetas
+---------------------------------------------
+*/
+
+#tag-bar li {
+    display: inline-block;    
+    padding: 0.1rem 0.1rem;
+    vertical-align: top;
+}
+
+.tag img{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    margin-right: 0.3rem;
+}
+
+.tag{     
+    margin-right: 0.1rem;
+}
+
+.tag a{
+    color: #878787;
+}
+
+.main-section-tagged{
+    width: 750px;
+    float: right;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    flex-wrap: wrap-reverse;
+}
