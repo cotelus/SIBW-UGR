@@ -7,3 +7,7 @@
 3.- El servidor está ya configurado para que cargue el index que haya en la carpeta /vagrand/html 
 
 4.- Desde un navegador web en la host, ve a "localhost:8080" y se deberia conectar al servidor
+
+5.- Cargar "adminer....php" desde el navegador
+	a.- login
+	b.- ya puedes jugar con la BBDD
