@@ -4,10 +4,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    //font-family: Telefonica, sans-serif;
     font-family: "Roboto", sans-serif;
     color: #333333;
-    //background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c0/Titanfall_at_Gamescom_2013_(9591148650).jpg");
 }
 
 
@@ -113,15 +111,13 @@ ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
     width: 750px;
     float: right;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .single-event img{
-    width: 230px;
-    margin: 15px;
-    height: 150px;
+    width: 100%;
     padding: 0;
 }
 

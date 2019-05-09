@@ -1,44 +1,33 @@
-<?php
-require_once 'vendor/autoload.php';
+<!DOCTYPE html>
+<html lang="es">
+    <!-- Se incluye el archivo de cabecera -->
+    <?php
+        $_GET['pageTitle']="Portada";
+        include("php/head.php");
+    ?>
 
-$loader = new \Twig\Loader\FilesystemLoader('templates');
-$twig = new \Twig\Environment($loader,[ ]);
+    <body>
+        <!-- Se incluye la cabecera de la página -->
+        <?php
+            include("php/header.php");
+        ?>
 
-// Se conecta con el servidor
-//$conexion = mysql_connect('localhost', 'admin', 'sibw1819');
-// La versión de arriba ( que se propone en el tutorial ) está obsoleta y no funciona
-//$conexion = new mysqli("localhost", "admin", "sibw1819");
-$conexion = mysqli_connect('localhost', 'admin', 'sibw1819', "SIBW_bd");
+        <!-- Aquí se van metiendo los componentes -->
+        <div id="main">
+            <?php
+                include("php/aside.php");
+            ?>
+        <!-- La sección "principal" en la que van los eventos, si se genera en la portada -->
+            <section id="event-list" class="main-section">
+                
+                <?php
+                    include("php/eventCatalog.php");
+                ?>
+            </section>
+        </div>
 
-// Se abre la base de datos
-//$abreBD = mysqli_select_db('SIBW_bd', $conexion);
-if(!$conexion){
-    die ('No se pudo abrir la base de datos. ERROR: ' . mysql_error());
-}
-
-// Se ejecuta una consulta
-// Aquí se debe coger todos los eventos, o una cuña de 10 al menos
-$seleccion = 'SELECT * FROM gameEvent WHERE eventId = 1';
-
-//$resultado = mysql_query ($seleccion, $conexion);
-$resultado = mysqli_query($conexion, $seleccion);
-
-
-// Averiguamos cuantas filas devuelve la consulta
-// Coger tambien cuantos eventos finales han sido devueltos, es decir, el numero de tuplas
-$numFilas = mysqli_num_rows ($resultado);
-
-
-$fila = mysqli_fetch_array ($resultado, MYSQLI_NUM);
-$nombre = $fila[0];
-$imagenPortada = $fila[1];
-// Hace falta una comprobación extra.
-//    - Determinar el número de tuplas devueltas
-
-// Comprobar que las tuplas devueltas tienen algo que devolver.
-echo $twig->render('portadaTemplate.html',
-	 ['eventName' => $nombre, 'titleImg' => $imagenPortada]);
-
-// Cerramos la conexion con el servidor
-mysql_close($conexion);
-?>
+        <?php
+            include("php/footer.php");
+        ?>
+    </body>
+</html>
