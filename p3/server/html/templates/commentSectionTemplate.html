@@ -1,0 +1,40 @@
+<!-- Botón para comentarios -->
+<div id="comment-button" onclick="toggleComments()">
+    <button><img src="/imgs/iconoComentarios.png"></button>
+</div>
+<!-- Div para los comentarios (oculto) -->
+<div id="comment-bar">
+    <h3>COMENTARIOS</h3>
+    <section class="comment-section">
+        <div class="comment">
+            <h5>
+                <a href="mailto:Ricardo@milos.com">
+                    Ricardo Milos
+                </a>
+            </h5>
+            <span class="comment-subheading">Escrito: <strong>4/2/2019 22:22:22</strong></span>
+            <p class="comment-text">
+                Bailé hasta la muerte en aquel evento!
+            </p>
+        </div>
+        <div class="comment">
+            <h5>
+                <a href="mailto:TonyStark@gmail.com">
+                    Antonio Rígido
+                </a>
+            </h5>
+            <span class="comment-subheading">Escrito: <strong>31/1/2019 22:42:57</strong></span>
+            <p class="comment-text">
+                Ha sido un orgullo organizar este evento en el Stark plaza.
+            </p>
+        </div>
+    </section>
+    
+    <form action="#" id="add-comment" method="get" onsubmit="return addComment(event)">
+        <h4>Deje aquí su comentario</h4>
+        <input type="text" name="name" id="name" placeholder="Nombre...">
+        <input type="text" name="email" id="email" placeholder="Correo electrónico...">
+        <textarea name="message" id="message" placeholder="Comentario..." onkeyup="addStringtoForbidden(event)"></textarea>
+        <button type="submit" value="Submit">Enviar</button>
+    </form>
+</div>

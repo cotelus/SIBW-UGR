@@ -12,6 +12,10 @@
             include("php/header.php");
         ?>
 
+        <?php
+            include("php/commentSection.php");
+        ?>
+
         <!-- Aquí se van metiendo los componentes -->
         <div id="main">
             <?php
