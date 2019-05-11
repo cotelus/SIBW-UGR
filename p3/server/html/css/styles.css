@@ -514,7 +514,8 @@ ESTILOS formulario comentarios
 #add-comment{
     margin-top: 30px;
     margin-bottom: 15px;
-}
+}#inicioSesion h1{
+
 /*
 ---------------------------------------------
 ESTILOS formulario comentarios
@@ -570,3 +571,33 @@ ESTILOS barra de etiquetas
     justify-content: left;
     flex-wrap: wrap-reverse;
 }
+
+/*
+---------------------------------------------
+ESTILOS iniciar sesión (inicioSesion.html)
+-------------------------------------------
+*/
+#inicioSesion{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 15px;
+    display: flex;
+}
+
+#inicioSesion h2{
+
+    color: red;
+}
+
+#inicioSesion-inicio{
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+
+#inicioSesion-registro{
+    display: block;
+    float: right;
+    width: 50%;
+}
+

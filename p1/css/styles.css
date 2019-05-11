@@ -402,3 +402,31 @@ ESTILOS eventos-imprimir (evento-imprimir.html)
 .text-print p{
     font-family: Telefonica, sans-serif;
 }
+
+/*
+---------------------------------------------
+ESTILOS iniciar sesión (inicioSesion.html)
+-------------------------------------------
+*/
+#inicioSesion{
+    margin: 0 auto;
+    width: 750px;
+    padding: 15px;
+    display: flex;
+}
+
+#inicioSesion h1{
+    color: red;
+}
+
+#inicioSesion-inicio{
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+
+#inicioSesion-registro{
+    display: block;
+    float: right;
+    width: 50%;
+}
