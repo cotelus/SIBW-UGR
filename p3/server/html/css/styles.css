@@ -604,7 +604,7 @@ ESTILOS iniciar sesión (inicioSesion.html)
 }
 
 /* **************************************
-    ESTILOS DEL MODAL DE LOGIN (sacados directamente de w3schools) 
+    ESTILOS DEL MODAL DE LOGIN y SIGNIN (sacados directamente de w3schools) 
 ************************************** */
 
 /* The Modal (background) */
@@ -669,7 +669,11 @@ ESTILOS iniciar sesión (inicioSesion.html)
     color: #333333;
   }
   
-  .modal-body {padding: 2px 16px;}
+  .modal-body {
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+      margin-left: 2rem;
+    }
   
   .modal-footer {
     padding: 2px 16px;

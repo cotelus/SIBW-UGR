@@ -6,9 +6,16 @@
             <span class="close">&times;</span>
             <h2>Iniciar Sesión</h2>
         </div>
-            <div class="modal-body">
-            <p>Aquí va el formulario bien bonito</p>
-            <p>BIEN BONITO</p>
+        <div class="modal-body">
+            <div class="sesion-container">
+                <label for="uname"><b>Usuario</b></label>
+                <input type="text" placeholder="Usuario..." name="uname" required>
+            
+                <label for="psw"><b>Contraseña</b></label>
+                <input type="password" placeholder="Contraseña..." name="psw" required>
+            
+                <button type="submit">Iniciar Sesión</button>
+            </div>
         </div>
         <div class="modal-footer">
             ¿No tienes cuenta? <button id="sign-in-btn">Registrarse</button>
