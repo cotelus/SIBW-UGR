@@ -12,6 +12,11 @@
             include("php/header.php");
         ?>
 
+        <!-- Justo debajo de la cabecera, se añade el modal del login -->
+        <?php
+            include("php/loginModal.php");
+        ?>
+
         <!-- Aquí se van metiendo los componentes -->
         <div id="main">
             <?php
