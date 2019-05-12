@@ -12,9 +12,12 @@
             include("php/header.php");
         ?>
 
-        <!-- Justo debajo de la cabecera, se añade el modal del login -->
+        <!-- Justo debajo de la cabecera, se añade el modal del login y de registro-->
         <?php
             include("php/loginModal.php");
+        ?>
+        <?php
+            include("php/signInModal.php");
         ?>
 
         <!-- Aquí se van metiendo los componentes -->
