@@ -1,5 +1,6 @@
 <?php
 
+    require "php/CommentClass.php";
 
     /* 
         En este archivo, hay que recoger TODOS (por ahora solo recoge uno) los comentarios del evento
@@ -91,8 +92,12 @@
     // Comprobar que las tuplas devueltas tienen algo que devolver.
 
 
-    echo $twig->render('commentSectionTemplate.html',
-        ['nombreUsuario' => $nombre, 'contenido' => $contenido]);
+    echo $twig->render('commentSectionTemplate.html', array(
+        'comments' => array( 
+            new Comment($nombre, $contenido),
+            new Comment('Elca Ballo', 'Increible viaje a la pradera LOL'),
+        )));
+    
 
     // Cerramos la conexion con el servidor
     mysqli_close($conexion);

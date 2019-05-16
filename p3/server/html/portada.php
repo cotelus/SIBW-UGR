@@ -15,7 +15,8 @@
                 ( o no, aunque el header si que lo va a enviar con GET ) el usuario y el e-mail. 
             */
 
-            include("php/header.php");;
+            include("php/header.php");
+        
         ?>
 
         <!-- Aquí se van metiendo los componentes -->
