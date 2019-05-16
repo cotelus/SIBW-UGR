@@ -7,21 +7,21 @@
     ?>
 
     <body>
-        <!-- Se incluye la cabecera de la página -->
+        <!-- cabecera de la página -->
         <?php
             include("php/header.php");
         ?>
 
+        <!-- Añado aquí el contenido para manejar los comentarios -->
         <?php
             include("php/commentSection.php");
         ?>
 
-        <!-- Aquí se van metiendo los componentes -->
         <div id="main">
             <?php
                 include("php/aside.php");
             ?>
-        <!-- La sección "principal" en la que van los eventos, si se genera en la portada -->
+        <!-- El evento en profundidad -->
             <section id="event-list" class="main-section">
                 
                 <?php

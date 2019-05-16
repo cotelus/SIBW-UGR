@@ -2,20 +2,22 @@
 <html lang="es">
     <!-- Se incluye el archivo de cabecera -->
     <?php
-        $_GET['pageTitle']="Portada";
+        $_GET['pageTitle']="Panel de usuario";
         include("php/head.php");
     ?>
 
     <body>
         <!-- Se incluye la cabecera de la página -->
         <?php
-            /* 
-                En la cabecera además va a ir el control de sesiones de usuario. Es decir, el usuario que se conecte lo hará a través
-                del botón de "INICIAR SESIÓN" del header. Acto seguido si el inicio es válido, la página que se muestre, almacenará 
-                ( o no, aunque el header si que lo va a enviar con GET ) el usuario y el e-mail. 
-            */
+            include("php/header.php");
+        ?>
 
-            include("php/header.php");;
+        <!-- Justo debajo de la cabecera, se añade el modal del login y de registro-->
+        <?php
+            include("php/loginModal.php");
+        ?>
+        <?php
+            include("php/signInModal.php");
         ?>
 
         <!-- Aquí se van metiendo los componentes -->
@@ -26,6 +28,7 @@
         <!-- La sección "principal" en la que van los eventos, si se genera en la portada -->
             <section id="event-list" class="main-section">
                 
+                <!-- Aquí en lugar del catálogo de eventos, obviamente tiene que ir los tejemanejes de la configuracion -->
                 <?php
                     include("php/eventCatalog.php");
                 ?>
