@@ -8,15 +8,14 @@
     <section class="comment-section">
         
         <!-- Aquí van los comentarios, la plantilla se encarga de poner los que sean necesarios -->
-
         {% for comment in comments %}
             <div class="comment">
                 <h5>
-                    <a href="mailto:Ricardo@milos.com">
+                    <a href="mailto:{{comment.email}}">
                         {{comment.username}}
                     </a>
                 </h5>
-                <span class="comment-subheading">Escrito: <strong>4/2/2019 22:22:22</strong></span>
+                <span class="comment-subheading">Escrito: <strong>{{comment.date}}</strong></span>
                 <p class="comment-text">
                     {{comment.text}}
                 </p>

@@ -81,10 +81,19 @@
     // Coger tambien cuantos eventos finales han sido devueltos, es decir, el numero de tuplas
     $numFilas = mysqli_num_rows ($resultado);
 
+    // Array para los comentarios
+    $comentarios = array();
 
-    $fila = mysqli_fetch_array ($resultado, MYSQLI_NUM);
-    $nombre = $fila[2];
-    $contenido = $fila[5];
+    while($fila = mysqli_fetch_array($resultado)){
+        $ip = $fila[1];
+        $username = $fila[2];
+        $email = $fila[3];
+        $date = $fila[4];
+        $text = $fila[5];
+        $comentario = new Comment($ip, $username, $email, $date, $text);
+        array_push ($comentarios, $comentario);
+    }
+
 
     // Hace falta una comprobación extra.
     //    - Determinar el número de tuplas devueltas
@@ -93,10 +102,7 @@
 
 
     echo $twig->render('commentSectionTemplate.html', array(
-        'comments' => array( 
-            new Comment($nombre, $contenido),
-            new Comment('Elca Ballo', 'Increible viaje a la pradera LOL'),
-        )));
+        'comments' => $comentarios));
     
 
     // Cerramos la conexion con el servidor

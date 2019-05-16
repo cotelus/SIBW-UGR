@@ -2,13 +2,17 @@
 
 class Comment {
 
-    public function __construct($name, $text) {
-        $this->name = $name; 
+    public function __construct($ip, $username, $email, $date, $text) {
+        $this->ip = $ip;
+        $this->username = $username; 
+        $this->email = $email;
+        $this->date = $date;
         $this->text = $text; 
     }
 
     public function __toString(){
-        return $this->name . $this->text;
+        $string = $this->ip . $this->username . $this->email . $this->date . $this->text;
+        return $string;
     }
 }
 ?>
