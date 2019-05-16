@@ -89,10 +89,12 @@
         $username = $fila[2];
         $email = $fila[3];
         $date = $fila[4];
-        $text = $fila[5];
-        $comentario = new Comment($ip, $username, $email, $date, $text);
+        $time = $fila[5];
+        $text = $fila[6];
+        $comentario = new Comment($ip, $username, $email, $date, $time, $text);
         array_push ($comentarios, $comentario);
     }
+
 
 
     // Hace falta una comprobación extra.
@@ -103,8 +105,28 @@
 
     echo $twig->render('commentSectionTemplate.html', array(
         'comments' => $comentarios));
+
+    
+    /* 
+        Una vez cargados los comentarios de la página de la BBDD, se descarga la lista de palabras prohibidas y se guarda en un array
+    */
+    $palabras = "SELECT * FROM forbiddenWords";
+    
+    $resultadoPalabras = mysqli_query($conexion, $palabras);
+
+    $forbiddenWords = array();
+
+    while($fila = mysqli_fetch_array($resultadoPalabras)){
+        $palabra = $fila[1]; 
+        array_push ($forbiddenWords, $palabra);
+    }
+
     
 
     // Cerramos la conexion con el servidor
     mysqli_close($conexion);
 ?>
+
+<!-- La lista de palabras prohibidas se pasa a JavaScript para que la use-->
+<script type="text/javascript">var forbiddenWords =<?php echo json_encode($forbiddenWords); ?>;</script>
+<script type="text/javascript" src="/js/script.js"></script>
