@@ -26,7 +26,7 @@
 
     // Se ejecuta una consulta
     // Aquí se debe coger todos los eventos, o una cuña de 10 al menos
-    $seleccion = 'SELECT * FROM gameEvent WHERE eventId = 1';
+    $seleccion = 'SELECT * FROM gameEvent WHERE eventId = 2';
 
     //$resultado = mysql_query ($seleccion, $conexion);
     $resultado = mysqli_query($conexion, $seleccion);

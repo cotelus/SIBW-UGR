@@ -14,12 +14,6 @@ index = 0;
     "mono",
     "pepino"
 ];*/
-// Se recogen las palabras prohibidas del controlador
-    // Podria usar directamente forbiddenWords, pero de esta manera es mas visual
-var word_set = new Array();
-for(var i=0;i<forbiddenWords.length;i++){
-    word_set.push(forbiddenWords[i]);
-}
 
 // Muestra o no el div que tiene los comentarios y el formulario ( y desplaza el boton de comentarios)
 function toggleComments() {
@@ -195,3 +189,10 @@ window.onclick = function(event) {
       signInModal.style.display = "none";
     }
 }
+
+// Se recogen las palabras prohibidas del controlador
+    // Podria usar directamente forbiddenWords, pero de esta manera es mas visual
+    var word_set = new Array();
+    for(var i=0; i<forbiddenWords.length; i++){
+        word_set.push(forbiddenWords[i]);
+    }

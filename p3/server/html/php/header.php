@@ -6,8 +6,6 @@
 
     echo $twig->render('headerTemplate.html');
 
-    $_GET['amego'] = "me envío datos desde la vida";
-
     include("php/loginModal.php");
     include("php/signInModal.php");
 ?>

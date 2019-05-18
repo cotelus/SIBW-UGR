@@ -680,3 +680,12 @@ ESTILOS iniciar sesión (inicioSesion.html)
     background-color: #f3f3f3;
     color: #333333;
   }
+
+
+.panel-control-content{
+    width: 1000px;
+}
+
+.config-items{
+    margin-top: 5rem;
+}

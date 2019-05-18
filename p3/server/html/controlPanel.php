@@ -12,25 +12,20 @@
             include("php/header.php");
         ?>
 
-        <!-- Justo debajo de la cabecera, se añade el modal del login y de registro-->
-        <?php
-            include("php/loginModal.php");
-        ?>
-        <?php
-            include("php/signInModal.php");
-        ?>
-
         <!-- Aquí se van metiendo los componentes -->
         <div id="main">
-            <?php
-                include("php/aside.php");
-            ?>
-        <!-- La sección "principal" en la que van los eventos, si se genera en la portada -->
-            <section id="event-list" class="main-section">
+        <!-- La sección en la que van los ajustes de usuario -->
+            <section id="event-list" class="panel-control-content">
                 
                 <!-- Aquí en lugar del catálogo de eventos, obviamente tiene que ir los tejemanejes de la configuracion -->
                 <?php
-                    include("php/eventCatalog.php");
+                    session_start(); //Never forget this line when using $_SESSION
+                    $queue = $_SESSION['queue'];
+                    //use queue for your needs
+                    echo $queue;
+
+
+                    include("php/controlPanelList.php");
                 ?>
             </section>
         </div>
