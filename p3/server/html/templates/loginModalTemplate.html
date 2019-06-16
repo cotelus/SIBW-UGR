@@ -7,15 +7,11 @@
             <h2>Iniciar Sesión</h2>
         </div>
         <div class="modal-body">
-            <div class="sesion-container">
-                <label for="uname"><b>Usuario</b></label>
-                <input type="text" placeholder="Usuario..." name="uname" required>
-            
-                <label for="psw"><b>Contraseña</b></label>
-                <input type="password" placeholder="Contraseña..." name="psw" required>
-            
-                <button type="submit">Iniciar Sesión</button>
-            </div>
+                <form action="/php/login.php" method="post">
+                    <p>Correo elecrónico: <input type="text" name="email" required/></p>
+                    <p>Contraseña: <input type="text" name="pass" required /></p>
+                    <p><input type="submit" /></p>
+                </form>
         </div>
         <div class="modal-footer">
             ¿No tienes cuenta? <button id="sign-in-btn">Registrarse</button>

@@ -2,6 +2,7 @@
 <html lang="es">
     <!-- Se incluye el archivo de cabecera -->
     <?php
+    
         $_GET['pageTitle']="Portada";
         include("php/head.php");
     ?>
