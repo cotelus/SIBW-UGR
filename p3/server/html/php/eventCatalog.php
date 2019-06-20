@@ -16,7 +16,7 @@
     //$conexion = mysql_connect('localhost', 'admin', 'sibw1819');
     // La versión de arriba ( que se propone en el tutorial ) está obsoleta y no funciona
     //$conexion = new mysqli("localhost", "admin", "sibw1819");
-    $conexion = mysqli_connect('localhost', 'admin', 'sibw1819', "SIBW_bd");
+    $conexion = mysqli_connect('localhost', 'administrador', 'admin123', "sibw");
 
     // Se abre la base de datos
     //$abreBD = mysqli_select_db('SIBW_bd', $conexion);
@@ -26,7 +26,7 @@
 
     // Se ejecuta una consulta
     // Aquí se debe coger todos los eventos, o una cuña de 10 al menos
-    $seleccion = 'SELECT * FROM gameEvent WHERE eventId = 2';
+    $seleccion = 'SELECT * FROM evento WHERE idEvento = 2';
 
     //$resultado = mysql_query ($seleccion, $conexion);
     $resultado = mysqli_query($conexion, $seleccion);
