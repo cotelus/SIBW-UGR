@@ -3,6 +3,7 @@
 <html>
 
 <?php
+    header("Content-Type: text/html;charset=utf-8");
     /*  Aquí se van a incluir las clases que sean necesarias 
     */
     require("models/conectarBaseDatos.php");

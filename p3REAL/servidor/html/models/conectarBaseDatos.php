@@ -11,6 +11,7 @@
         static function getAllEvents(){
             // Se conecta con el servidor, con un usuario administrador
             $conexion = mysqli_connect('localhost', 'administrador', 'admin123', "sibw");
+            mysqli_query("SET NAMES 'utf8'");
 
             if(!$conexion){
                 die ('No se pudo abrir la base de datos. ERROR: ' . mysql_error());
@@ -19,7 +20,7 @@
 
             // Se ejecuta una consulta
             // Aquí se debe coger todos los eventos, o una cuña de 10 al menos
-            $seleccion = 'SELECT idEvento, nombreMiniatura, fotoMiniatura FROM evento WHERE idEvento = 1';
+            $seleccion = 'SELECT idEvento, nombreMiniatura, fotoMiniatura FROM evento';
 
             //$resultado = mysql_query ($seleccion, $conexion);
             $resultado = mysqli_query($conexion, $seleccion);
@@ -29,12 +30,13 @@
             // Coger tambien cuantos eventos finales han sido devueltos, es decir, el numero de tuplas
             $numFilas = mysqli_num_rows ($resultado);
 
-            $fila = mysqli_fetch_array ($resultado, MYSQLI_NUM);
+            $eventos = array ($numFilas);
 
-            $eventos = $fila;
+            while ($fila = $resultado->fetch_assoc()) {
 
-            $nombre = $fila[0];
-            $imagenPortada = $fila[1];
+                array_push($eventos,$fila['idEvento'], $fila['nombreMiniatura'], $fila['fotoMiniatura']);
+            }
+
             // Hace falta una comprobación extra.
             //    - Determinar el número de tuplas devueltas
 
@@ -48,6 +50,7 @@
         static function getEvent($idEvento){
             // Se conecta con el servidor, con un usuario administrador
             $conexion = mysqli_connect('localhost', 'administrador', 'admin123', "sibw");
+            mysqli_query("SET NAMES 'utf8'");
 
             if(!$conexion){
                 die ('No se pudo abrir la base de datos. ERROR: ' . mysql_error());
@@ -66,9 +69,7 @@
             // Coger tambien cuantos eventos finales han sido devueltos, es decir, el numero de tuplas
             $numFilas = mysqli_num_rows ($resultado);
 
-            $fila = mysqli_fetch_array ($resultado, MYSQLI_NUM);
-
-            $eventos = $fila;
+            $evento = mysqli_fetch_array ($resultado, MYSQLI_NUM);
             // Hace falta una comprobación extra.
             //    - Determinar el número de tuplas devueltas
 
@@ -76,7 +77,7 @@
 
             mysqli_close($conexion);
 
-            return $eventos;
+            return $evento;
         }
 
     }

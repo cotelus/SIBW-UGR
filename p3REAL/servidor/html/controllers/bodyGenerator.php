@@ -39,27 +39,34 @@
                 if(isset($_GET['eventos'])){
                     $eventos = $_GET['eventos'];
 
-                    $idEvento = $eventos[0];
-                    $nombre = $eventos[1];
-                    $imagenPortada = $eventos[2];
+                    require_once 'vendor/autoload.php';
+
+                    $loader = new \Twig\Loader\FilesystemLoader('templates');
+                    $twig = new \Twig\Environment($loader,[]);
+
+                    // numero de eventos recuperados:
+                    $numEventos = $eventos[0];
+
+                    for($i = 0; $i < $numEventos*3; $i+=3){
+                        $idEvento = $eventos[$i + 1];
+                        $nombre = $eventos[$i + 2];
+                        $imagenPortada = $eventos[$i + 3];
+
+                        echo $twig->render('listaEventoTemplate.html',
+                            ['idEvento' => $idEvento, 'eventName' => $nombre, 'titleImg' => $imagenPortada]);
+                    }
                 }
 
                 require_once 'vendor/autoload.php';
 
+                /*
                 $loader = new \Twig\Loader\FilesystemLoader('templates');
                 $twig = new \Twig\Environment($loader,[]);
 
                 echo $twig->render('listaEventoTemplate.html',
                     ['idEvento' => $idEvento, 'eventName' => $nombre, 'titleImg' => $imagenPortada]);
-            
-                echo $twig->render('listaEventoTemplate.html',
-                ['eventName' => $nombre, 'titleImg' => $imagenPortada]);
 
-                echo $twig->render('listaEventoTemplate.html',
-                ['eventName' => $nombre, 'titleImg' => $imagenPortada]);
-
-                echo $twig->render('listaEventoTemplate.html',
-                ['eventName' => $nombre, 'titleImg' => $imagenPortada]);
+                    */
 
 
                 echo("</section>");
@@ -72,9 +79,17 @@
                 if(isset($_GET['evento'])){
                     $eventos = $_GET['evento'];
 
-                    $idEvento = $evento[0];
-                    $nombre = $evento[1];
-                    $imagenPortada = $evento[2];
+                    $imagen1 = $evento[7];
+                    $pie1 = $evento[8];
+                    $imagen2 = $evento[9];
+                    $pie2 = $evento[10];
+                    $titulo = $evento[3];
+                    $organizador = $evento[4];
+                    $fecha = $evento[5];
+                    $hora = $evento[6];
+                    // Cada vez que un string tenga caracteres utf-8, hay que usar la funcion encode
+                    $contenido = utf8_encode($evento[11]);
+
                 }
 
                 require_once 'vendor/autoload.php';
@@ -83,8 +98,9 @@
                 $twig = new \Twig\Environment($loader,[]);
 
                 // Ya que este controlador va a cargar la vista directamente, llama al ebbbento
-                echo $twig->render('listaEventoTemplate.html',
-                    ['idEvento' => $idEvento, 'eventName' => $nombre, 'titleImg' => $imagenPortada]);
+                echo $twig->render('eventTemplate.html',
+                    ['imagen1' => $imagen1, 'pie1' => $pie1, 'imagen2' => $imagen2, 'pie2' => $pie2, 'titulo' => $titulo,
+                    'organizador' => $organizador, 'fecha' => $fecha, 'hora' => $hora, 'contenido' => $contenido]);
 
 
                 echo("</section>");
