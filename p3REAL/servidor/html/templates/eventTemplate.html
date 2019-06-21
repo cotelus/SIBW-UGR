@@ -29,28 +29,30 @@
         &nbsp;
 
         <!-- Tags -->
+
+
         <ul id="tag-bar">
             <li class="tag">
                 <img src="../imgs/label.png">
             </li>
+            {% for etiqueta in etiquetas %}
             <li class="tag">
-                <a href="../html/fortnite.html">Fortnite,</a>
+                <a href="index.php?tag={{etiqueta}}">{{etiqueta}}, </a>
             </li>
-            <li class="tag">
-                <a href="../html/torneos.html">Torneos</a>
-            </li>
+            {% endfor %}
         </ul>
+
 
         <!-- Redes sociales e impresión -->
         <ul id="event-social">
-            <li class="menu-item"><a href="https://twitter.com/gamerhousecl">
+            <li class="menu-item"><a href="{{TWLink}}">
                 <img alt="Twitter" onmouseout="this.src='../imgs/Round Social Icons/PNG/Mono/twitter@2x.png';" onmouseover="this.src='../imgs/Round Social Icons/PNG/Color/twitter@2x.png';" src="../imgs/Round Social Icons/PNG/Mono/twitter@2x.png" />
                 <h5>Twitter</h5></a></li>
-            <li class="menu-item"><a href="https://www.facebook.com/GamerHouseCL/">
+            <li class="menu-item"><a href="{{FBLink}}}">
                 <img alt="Facebook" onmouseout="this.src='../imgs/Round Social Icons/PNG/Mono/facebook@2x.png';" onmouseover="this.src='../imgs/Round Social Icons/PNG/Color/facebook@2x.png';" src="../imgs/Round Social Icons/PNG/Mono/facebook@2x.png" />
                 <h5>Facebook</h5></a></li>
 
-            <li class="menu-item"><a href="../html/eventoFortnite-imprimir.html">
+            <li class="menu-item"><a href="index.php?print={{idEvento}}">
                 <img onmouseout="this.src='../imgs/Round Social Icons/PNG/Mono/print.png';" onmouseover="this.src='../imgs/Round Social Icons/PNG/Color/print.png';" src="../imgs/Round Social Icons/PNG/Mono/print.png" alt="Imprimir"/>
                 <h5>Imprimir</h5></a></li>
         </ul>

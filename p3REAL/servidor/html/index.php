@@ -28,6 +28,14 @@
         $tagName = $_GET['tag'];
     }
 
+    // Si ?print -> carga la versión para imprimir del evento
+    $imprime = false;
+    if (isset($_GET['print'])) {
+        $imprime = true;
+        // Se sobreescribe la información de idEvento, ya que como el evento es el mismo, lo unico que cambia es la representación de la información
+        $idEvento = $_GET['print'];
+    }
+
     // Cualquier otra cosa -> index.php
 
     /********************************************************************************************/
@@ -44,12 +52,22 @@
     // Si no hay ningún evento seleccionado en la URL, voy a cargar todos los eventos de la base de datos
     if(!$cargaEvento){
         // Le pido al modelo que me devuelva todos los eventos
-
-        $eventos = ConectarABaseDatos::getAllEvents();
+        /*  Como sintácticamente es lo mismo la pagina principal que ver todos los eventos de X etiqueta,
+                aquí lo que hago es marcar una distinción y pasarle al controlador que va a generar la vista el array de eventos,
+                solo que en una ocasión tendrá todos los eventos y en otra ocasión solo los de la etiqueta.
+        */
+        if($cargaTag){
+            $eventos = ConectarABaseDatos::getAllEventsFromTag($tagName);
+        }else{
+            $eventos = ConectarABaseDatos::getAllEvents();
+        }
     }else{
         $evento = ConectarABaseDatos::getEvent($idEvento);
         // Además, habrá que cargar los comentarios del mismo
         $comentariosEvento = ConectarABaseDatos::getComments($idEvento);
+    }
+    if($imprime){
+        $evento = ConectarABaseDatos::getEvent($idEvento);
     }
 
 
@@ -90,6 +108,7 @@
     $_GET['evento'] = $evento;
     $_GET['comentarios'] = $comentariosEvento;
     $_GET['etiquetas'] = $etiquetas;
+    $_GET['imprimir'] = $imprime;
     include("controllers/bodyGenerator.php");    
 ?>
 

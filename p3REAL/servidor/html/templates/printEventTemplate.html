@@ -1,0 +1,51 @@
+<main id="container">
+    <!-- Cabecera de la web -->
+    <header id="header-print">
+        <div id="header-container-print">
+            <h1 id="page-title-print">Losjue Guitos</h1>
+        </div>
+        <div id="brand-print">
+            <a href="index.php">
+                <img src="/imgs/logo/logo.png" alt="Logo">
+            </a>
+        </div>
+    </header>
+</main>
+
+<div id="main">
+            
+    <section class="main-section-event-print">
+        <div>
+            
+            
+            <!-- Información del evento -->
+            <h3> {{titulo}} </h3>
+            <h2>{{organizador}} </h2>
+            <h4><i>{{fecha}} a las {{hora}}</i></h4>	
+
+        <!-- Imágenes del evento -->
+        <div id="widgets-event">					
+            <ul>
+                <li class="widget-item">
+                    <div class="widget-image">
+                        <img class="image-event" src="{{imagen1}}">
+                        <h5> {{pie1}}</h5>
+                    </div>
+                </li>
+                <li class="widget-item">
+                    <div class="widget-image">
+                        <img class="image-event" src="{{imagen2}}">
+                        <h5>{{pie2}}</h5>
+                    </div>				
+                </li>					
+                
+            </ul>
+        </div>
+
+
+        <div class="print-text">
+            {{ contenido|striptags('<b><br><p></p><ul></ul><li></li>')|raw }}
+            &nbsp;
+        </div>	
+    </section>
+</div>
