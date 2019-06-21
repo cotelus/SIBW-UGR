@@ -21,6 +21,13 @@
 
     // Si ?contacto -> carga la página de contacto
 
+    // Si ?tag -> carga la visión de los eventos con tal etiqueta
+    $cargaTag = false;
+    if (isset($_GET['tag'])) {
+        $cargaTag = true;
+        $tagName = $_GET['tag'];
+    }
+
     // Cualquier otra cosa -> index.php
 
     /********************************************************************************************/
@@ -31,6 +38,9 @@
         1.- Obtener el evento o datos de la página en cuestión según lo establecido en la URL
             1.1.- Si lo obtenido era un evento, cargar también los comentarios y las palabras prohibidas
     */
+    // Ya que las etiquetas se van a mostrar en todas las vistas, se cargan si o si
+    $etiquetas = ConectarABaseDatos::getAllTags();
+
     // Si no hay ningún evento seleccionado en la URL, voy a cargar todos los eventos de la base de datos
     if(!$cargaEvento){
         // Le pido al modelo que me devuelva todos los eventos
@@ -38,6 +48,8 @@
         $eventos = ConectarABaseDatos::getAllEvents();
     }else{
         $evento = ConectarABaseDatos::getEvent($idEvento);
+        // Además, habrá que cargar los comentarios del mismo
+        $comentariosEvento = ConectarABaseDatos::getComments($idEvento);
     }
 
 
@@ -72,10 +84,12 @@
                 V0: Vector con la información de las miniaturas de los eventos
                 V1: Vector con la información de un evento concreto
     */
-    // Como prueba le paso solo un id de un evento
+    // Como prueba por ahora, paso todos los objetos en bruto
     $_GET['idEvento'] = $idEvento;
     $_GET['eventos'] = $eventos;
     $_GET['evento'] = $evento;
+    $_GET['comentarios'] = $comentariosEvento;
+    $_GET['etiquetas'] = $etiquetas;
     include("controllers/bodyGenerator.php");    
 ?>
 

@@ -1,0 +1,8 @@
+<li class="widget-item">
+    <div class="widget-tag-title"> 									
+        <h4 class="tag-title">ETIQUETAS</h4>
+    </div>
+    {% for tag in tags %}
+        <a class="widget-tag" href="index.php?tag={{tag}}">{{tag}}</a>	
+    {% endfor %}
+</li>

@@ -110,7 +110,7 @@ ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
     width: 750px;
     float: right;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -154,7 +154,7 @@ ESTILOS OBRAS PAGINA PRINCIPAL (principal.html)
 }
 
 .widget-item{
-    display: inline-block;
+    display: block;
 }
 
 .widget-item h5{
@@ -337,7 +337,7 @@ ESTILOS eventos-principal (evento.html)
     width: 750px;
     float: right;
     display: flex;
-    align-items: flex-top;
+    align-items: flex-start;
     justify-content: left;
     flex-wrap: wrap;
 }
@@ -565,13 +565,4 @@ ESTILOS barra de etiquetas
 
 .tag a{
     color: #878787;
-}
-
-.main-section-tagged{
-    width: 750px;
-    float: right;
-    display: flex;
-    align-items: flex-end;
-    justify-content: left;
-    flex-wrap: wrap-reverse;
 }

@@ -2,6 +2,7 @@ var comments_displayed = false;
 forbiddenWord = "";
 index = 0;
 
+/*
 var word_set =[
     "sibw",
     "profesor",
@@ -13,7 +14,7 @@ var word_set =[
     "gato",
     "mono",
     "pepino"
-];
+];*/
 
 // Muestra o no el div que tiene los comentarios y el formulario ( y desplaza el boton de comentarios)
 function toggleComments() {
@@ -138,4 +139,12 @@ function censorWord(word){
 
 
     text.value = res;
+}
+
+
+// Se recogen las palabras prohibidas del controlador
+// Podria usar directamente forbiddenWords, pero de esta manera es mas visual
+var word_set = new Array();
+for(var i=0; i<forbiddenWords.length; i++){
+    word_set.push(forbiddenWords[i]);
 }
