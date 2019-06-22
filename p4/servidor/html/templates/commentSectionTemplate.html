@@ -1,0 +1,37 @@
+<!-- Botón para comentarios -->
+<div id="comment-button" onclick="toggleComments()">
+    <button><img src="imgs/iconoComentarios.png"></button>
+</div>
+<!-- Div para los comentarios (oculto) -->
+<div id="comment-bar">
+    <h3>COMENTARIOS</h3>
+    <section class="comment-section">
+        
+        <!-- Aquí van los comentarios, la plantilla se encarga de poner los que sean necesarios -->
+        {% for comment in comments %}
+            <div class="comment">
+                <h5>
+                    <a href="mailto:{{comment.email}}">
+                        {{comment.username}}
+                    </a>
+                </h5>
+                <span class="comment-subheading">Escrito el: <strong>{{comment.date}} </strong>a las <strong>{{comment.time}}</strong></span>
+                <p class="comment-text">
+                    {{comment.text}}
+                </p>
+            </div>
+        {% endfor %}
+
+    </section>
+    
+    <!-- El comentario se envía al archivo sendComment.php para que haga las verificaciones oportunas y lo envíe a la BD 
+        onsubmit="return addComment(event)"
+        -->
+    <form action="/models/sendComment.php?idEvento={{idEvento}}" method="post" accept-charset="UTF-8" id="add-comment">
+        <h4>Deje aquí su comentario</h4>
+        <input type="text" name="comment[]" id="name" placeholder="Nombre...">
+        <input type="text" name="comment[]" id="email" placeholder="Correo electrónico...">
+        <textarea type="text" name="comment[]" id="message" placeholder="Comentario..." onkeyup="addStringtoForbidden(event)"></textarea>
+        <input type="submit" name="submit"/>
+    </form>
+</div>
