@@ -23,6 +23,7 @@
     if(isset($_GET['idEvento'])){
         // Compruebo simplemente que sea un numero
         if( is_numeric($_GET['idEvento'] ) ){
+            $idEvento = $_GET['idEvento'];
             $catalogo = false;
             $eventoConcreto = true;
         }
@@ -33,8 +34,8 @@
 
         $comentarios = $_GET['comentarios'];
         
-        echo $twig->render('commentSectionTemplate.html', array(
-            'comments' => $comentarios));
+        echo $twig->render('commentSectionTemplate.html', array('comments' => $comentarios, 'idEvento' => $idEvento));
+        //echo $twig->render('commentSectionTemplate.html', array('comments' => $comentarios));
     }
 
     $imprimir = false;

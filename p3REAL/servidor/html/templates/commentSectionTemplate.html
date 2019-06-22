@@ -24,11 +24,14 @@
 
     </section>
     
-    <form action="#" id="add-comment" method="get" onsubmit="return addComment(event)">
+    <!-- El comentario se envía al archivo sendComment.php para que haga las verificaciones oportunas y lo envíe a la BD 
+        onsubmit="return addComment(event)"
+        -->
+    <form action="/models/sendComment.php?idEvento={{idEvento}}" method="post" accept-charset="UTF-8" id="add-comment">
         <h4>Deje aquí su comentario</h4>
-        <input type="text" name="name" id="name" placeholder="Nombre...">
-        <input type="text" name="email" id="email" placeholder="Correo electrónico...">
-        <textarea name="message" id="message" placeholder="Comentario..." onkeyup="addStringtoForbidden(event)"></textarea>
-        <button type="submit" value="Submit">Enviar</button>
+        <input type="text" name="comment[]" id="name" placeholder="Nombre...">
+        <input type="text" name="comment[]" id="email" placeholder="Correo electrónico...">
+        <textarea type="text" name="comment[]" id="message" placeholder="Comentario..." onkeyup="addStringtoForbidden(event)"></textarea>
+        <input type="submit" name="submit"/>
     </form>
 </div>

@@ -27,7 +27,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2.8rem;
+    font-size: 1.2rem;
 }
 
 h4 {
@@ -504,7 +504,7 @@ ESTILOS seccion comentarios
 */
 .comment-section{
     max-height: 30%;
-    overflow-y:auto
+    overflow-y: auto
 }
 
 .comment{
