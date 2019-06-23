@@ -1,0 +1,166 @@
+-- MySQL dump 10.13  Distrib 5.7.26, for Linux (x86_64)
+--
+-- Host: localhost    Database: sibw
+-- ------------------------------------------------------
+-- Server version	5.7.26-0ubuntu0.18.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `comentario`
+--
+
+DROP TABLE IF EXISTS `comentario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comentario` (
+  `evento` int(11) NOT NULL,
+  `ip` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `nombreUsuario` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `text` longtext CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  KEY `evento` (`evento`),
+  CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`evento`) REFERENCES `evento` (`idEvento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comentario`
+--
+
+LOCK TABLES `comentario` WRITE;
+/*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
+INSERT INTO `comentario` VALUES (1,'123.23.2.2','Fulanito Pérez','fulanito@gmail.com','2019-03-10','11:20:13','Vaya, este evento creo que si que lo disfrutaré mas que el anterior, que fué muy soso para mi.'),(1,'123.32.2.2','Juan Magán','magan@gmail.com','2019-06-21','00:42:59','Vaya, creo que lo disfrutaré '),(2,'7.7.7.7','Ela Migo','amigo@gmail.com','2019-06-21','00:43:45','GUAY!!'),(3,'1.2.3.4','Keanu Reves','godofuniverse@me.com','2019-06-21','00:44:22','NO! You\'re Breathtaking'),(4,'127.0.0.1','fulanito','fulanito@gmail.com','2019-04-02','11:30:00','muy bien jaja asi e'),(1,'127.0.0.1','fulanito','menganito@gusanito.com','2019-06-22','17:51:08','me lo voy a pasar muy bien jaja asi es'),(5,'127.0.0.1','fulanito','menganito@gusanito.com','2019-06-22','17:52:56','me lo voy a pasar muy bien jaja asi es'),(3,'127.0.0.1','fulanito','menganito@gusanito.com','2019-06-22','17:56:28','increible eventÃ¡culo'),(2,'127.0.0.1','fulanito','menganito@gusanito.com','2019-06-22','17:58:22','Buah, magnifico'),(3,'127.0.0.1','fulanito','menganito@gusanito.com','2019-06-22','18:00:28','Buah, magnifico'),(3,'10.0.2.2','luis','amigo@elas.com','2019-06-22','18:59:50','Vaya, voy a destrozar a mis adversarios. QUE TIEMBLE EL MUNDO');
+/*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `etiqueta`
+--
+
+DROP TABLE IF EXISTS `etiqueta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `etiqueta` (
+  `nombre` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`nombre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `etiqueta`
+--
+
+LOCK TABLES `etiqueta` WRITE;
+/*!40000 ALTER TABLE `etiqueta` DISABLE KEYS */;
+INSERT INTO `etiqueta` VALUES ('competitivo'),('entretenimiento'),('españa'),('fortnite'),('gamergy'),('league of legends'),('lol'),('mario kart'),('podcast'),('prensa'),('torneo'),('videojuego');
+/*!40000 ALTER TABLE `etiqueta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `etiquetaEvento`
+--
+
+DROP TABLE IF EXISTS `etiquetaEvento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `etiquetaEvento` (
+  `idEvento` int(11) NOT NULL,
+  `nombreEtiqueta` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  KEY `idEvento` (`idEvento`),
+  KEY `nombreEtiqueta` (`nombreEtiqueta`),
+  CONSTRAINT `etiquetaEvento_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `evento` (`idEvento`),
+  CONSTRAINT `etiquetaEvento_ibfk_2` FOREIGN KEY (`nombreEtiqueta`) REFERENCES `etiqueta` (`nombre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `etiquetaEvento`
+--
+
+LOCK TABLES `etiquetaEvento` WRITE;
+/*!40000 ALTER TABLE `etiquetaEvento` DISABLE KEYS */;
+INSERT INTO `etiquetaEvento` VALUES (1,'torneo'),(1,'fortnite'),(3,'torneo'),(3,'mario kart'),(4,'prensa'),(4,'entretenimiento'),(6,'entretenimiento'),(5,'torneo'),(5,'fortnite'),(2,'lol'),(2,'torneo'),(2,'league of legends'),(2,'entretenimiento'),(7,'gamergy'),(2,'gamergy'),(7,'lol'),(7,'league of legends'),(7,'competitivo'),(7,'españa');
+/*!40000 ALTER TABLE `etiquetaEvento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `evento`
+--
+
+DROP TABLE IF EXISTS `evento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `evento` (
+  `idEvento` int(11) NOT NULL AUTO_INCREMENT,
+  `nombreMiniatura` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `fotoMiniatura` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `titulo` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `organizador` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
+  `foto1` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `pie1` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `foto2` text CHARACTER SET utf8 COLLATE utf8_spanish_ci,
+  `pie2` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `contenido` longtext CHARACTER SET utf8 COLLATE utf8_spanish_ci,
+  `redTW` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `redFB` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`idEvento`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `evento`
+--
+
+LOCK TABLES `evento` WRITE;
+/*!40000 ALTER TABLE `evento` DISABLE KEYS */;
+INSERT INTO `evento` VALUES (1,'Evento Fortnite','imgs/evento-fortnite.jpg','Evento de Fortnite en Mall Alto Penaola','GamerHouse','2019-11-20','11:30:00','imgs/fortnite5.jpg','Evento Presencial | GamerHouse','imgs/fortnite7.jpg','Las skins especiales del evento | GamerHouse','Asi es, GamerHouse te trae nuevas sorpresas que seguramente estaras encantado de disfrutar. Se trata de un evento organizado por el equipo de trabajo de la empresa y el apoyo grandisimo del querido youtuber chileno conocido como CAOZ, en el Mall Alto Penaol (Santiago de Chile).\r\n\r\nEl evento consistira basicamente en : El ShowMatch en el que participaran youtubers amantes del Fortnite, un Torneo Fortnite en el que podran participar de forma GRATUITA, competencia contra youtubers, concurso de bailes Fortnite, un area recreativa pensada en los mas peques y en quienes no participen de forma competitiva, sorteos y demas actividades. Tambien encontraras stands relacionados con el titulo, articulos de PC y Funko-Pops. Ese dia podras reservar tus Funko-Pops para ser el primero en tener los de Fortnite para cuando lleguen en Diciembre.\r\n\r\nTe recordamos que las inscripciones al Torneo Fortnite se realizaran el mismo dia del evento a partir de las 12:00 PM, quienes deseen participar deberan inscribirse de forma presencial (SOLO 32 CUPOS). Aqui te dejamos un Video descriptivo en el que CAOZ explica cada detalle que debes saber antes del 10 de Noviembre, fecha que se acerca y esperamos sea tan emocionante para ustedes como para nosotros.','https://twitter.com/gamerhousecl','https://www.facebook.com/GamerHouseCL/'),(2,'Evento LoL','imgs/evento-lol.jpg','Deleite Lunar 2019','League of Legends','2019-01-28','00:00:00','imgs/lol.jpg','Vayne artificiera | Legado','imgs/lol2.jpeg','Sejuani artificiera | Legado','<p>El Deleite Lunar vuelve a la Grieta del Invocador a partir del <b>28 de enero de 2019 a las 17:00 (hora peninsular española) y hasta el 5 de marzo de 2019 a las 08:59 (hora peninsular española)</b>. Encontraréis los detalles del evento a continuación, donde profundizamos en las misiones, recompensas de botín y nuevos aspectos, incluido el aspecto Vayne artificiera (edición de prestigio).</p>\r\n\r\n				<p>Desbloquear cuanto antes el pase del Deleite Lunar es la mejor forma de aumentar el índice de obtención de símbolos, ya que los símbolos de la primera victoria del día solo se acumulan al comprar el pase.</p>\r\n\r\n				<p>El pase del Deleite Lunar 2019 permite tener disponibles misiones de la primera victoria del día adicionales y poder conseguir símbolos en cada partida con un índice de obtención ilimitado. El último día para conseguir símbolos con el pase es el 5 de marzo de 2019 a las 08:59 (hora peninsular española).</p>\r\n\r\n				<p>Retribución de símbolos por partida:</p>\r\n\r\n				<ul>\r\n					<li>Ganar una partida PVP en la Grieta = 6 símbolos del Deleite Lunar</li>\r\n					<li>Perder una partida PVP en la Grieta = 3 símbolos del Deleite Lunar</li>\r\n					<li>Ganar una partida PVP de ARAM o ARURF = 4 símbolos del Deleite Lunar</li>\r\n					<li>Perder una partida PVP de ARAM o ARURF = 2 símbolos del Deleite Lunar</li>\r\n				</ul>\r\n\r\n				<p>Si no tenéis el pase, los símbolos por partida se acumulan y se otorgan de forma retroactiva cuando obtienes el pase, excepto en el caso de las misiones adicionales de la primera victoria del día del pase, que pueden otorgar hasta 10 símbolos del Deleite Lunar cada día.</p>\r\n\r\n				<p>Consulta la sección de chromas para ver los iconos dorados de Xin Zhao, Jarvan IV, Warwick, Katarina, Caitlyn, Sona, Corki, Riven y Garen.</p>','https://twitter.com/gamerhousecl','https://www.facebook.com/GamerHouseCL'),(3,'Torneo MK 8 Deluxe','imgs/evento-MarioKart.png','Torneo Mario Kart 8 Deluxe','Nintenderos','2019-06-07','18:00:00','imgs/mk2.png','Cartel del Evento | Nintenderos','imgs/mk1.jpg','Super Mario Kart 8 | Nintendo','<p>Ya está aquí el esperadísimo <b>Mario Kart 8 Deluxe</b>, y por ello hemos decidido hacer un torneo para que podáis demostrar quién es ahora el mejor… ¿ya controlas los cambios en este nuevo juego?</p>\r\n\r\n				<p>El torneo empezará el domingo 7 de mayo a las 18:00 (hora peninsular) como ya viene siendo habitual y finalizará el mismo día a las 20:00 (hora peninsular). Es decir, tendréis 2 horas para hacer todas las carreras. Actualizaremos el timeline de este torneo con los resultados y otra información.</p>\r\n\r\n				<ul>\r\n					<li>Es necesario inscribirse en este torneo.</li>\r\n				    <li>Organizador: Nintenderos</li>\r\n				    <li>Inicio del torneo: <b>7/5/2017 a las 18:00 </b>(hora peninsular).</li>\r\n				    	<ul>\r\n				    		<li>Ciudad de México: 11:00am</li>\r\n					        <li>Colombia: 11:00 am</li>\r\n					        <li>Argentina: 13:00 pm</li>\r\n					        <li>Chile: 13:00 pm</li>\r\n					        <li>Panamá: 11:00 am</li>\r\n				    	</ul>\r\n				        \r\n				    <li>Final del torneo: 7/5/2017 a las 20:00 (hora peninsular, dos horas de duración).</li>\r\n				    <li>Código de acceso: 3033-6084-3307. Debes introducir este código al apartado online, torneo y introducir código.</li>\r\n				    <li>GP: 150CC</li>\r\n				    <li>Sin equipos</li>\r\n				    <li>Todos los vehículos</li>\r\n				    <li>16 carreras</li>\r\n				    <li>CPU difícil.</li>\r\n				    <li>Cambio de grupo: Cada 4 carreras.</li>\r\n				    <li>Sin restricción de puntos.</li>\r\n				    <li>Solo con código</li>\r\n				    <li>Objetos normales.</li>\r\n				    <li>Sin volante inteligente.</li>\r\n				    <li>Es un torneo mundial, pueden participar jugadores de todo el mundo.</li>\r\n				    <li>La organización puede descalificar a algún jugador si realiza actividades ilegales o no éticas, perjudicando la experiencia del jugador.</li>\r\n				    <li>Si así lo cree necesario organización, se puede suspender el torneo, retrasar o cancelar el mismo.</li>\r\n				    <li>El torneo está sujeto a cambios.</li>\r\n\r\n				</ul>','https://twitter.com/Nintenderos','https://es-la.facebook.com/Nintenderos/'),(4,'Evento para prensa','imgs/evento-prensa.jpg','Gamergy regresa en 2019 con una décima edición muy especial y planea dar el salto a Latinoamérica','Liga de Videojuegos Profesional','2019-06-30','11:30:00','imgs/p2.jpg','Liga de Videojuegos Profesional | lvp','imgs/p3.jpg','Madrid Games Week | madridgamesweek<','<p>Gamergy, el mayor evento de esports de España que organizan Liga de Videojuegos Profesional (Grupo MEDIAPRO) e IFEMA, regresará en junio de 2019. Lo hará con una mejora en su variedad y oferta de contenidos en España, que alcanzará una décima edición que promete ser muy especial, y con el objetivo de dar el salto a Latinoamérica.</p>\r\n\r\n \r\n\r\n				<p>Liga de Videojuegos Profesional e IFEMA Feria de Madrid ya trabajan para ofrecer una décima edición cargada de novedades, en la que Gamergy volverá a ser el punto de encuentro más importante del país para jugadores profesionales, semiprofesionales y casuales. En ese sentido, se espera que la décima edición sea más plural que nunca: Gamergy reforzará su oferta de contenidos para llegar a todos los públicos sin perder de vista los pilares que han contribuido a su éxito.</p>\r\n\r\n				 \r\n\r\n				<p>La reorganización del calendario de competición nacional, que pasa de contar con dos temporadas regulares a tener una (noviembre-junio), invita a concentrar todos los esfuerzos en un único Gamergy más potente. La edición de junio contará, por lo tanto, con las finales de la Superliga Orange de las distintas disciplinas profesionales.</p>\r\n\r\n				 \r\n\r\n				<p>Consolidado ya como el escenario ideal de las finales de la Superliga Orange de Counter-Strike: Global Offensive y Clash Royale, la décima edición de Gamergy será también una parada destacada para los torneos nacionales e internacionales que no cuentan con un circuito profesional regular. En la misma línea, el evento celebrado en Feria de Madrid aumentará su amplia oferta de torneos con la voluntad de que estén representadas la mayoría de comunidades.</p>\r\n\r\n				 \r\n\r\n				<p>Uno de los hitos de la anterior edición, en la que se batió el récord de asistentes -más de 50 mil-, fue la celebración del YT Battle Royale, un torneo de Fortnite en el que participaron un centenar de creadores de contenido de la célebre plataforma de vídeo. El torneo del Rubius, como se bautizó de manera informal, alcanzó audiencias millonarias. Aunque aún falta tiempo para saber si se podrá repetir la experiencia del YT Battle Royale, se está trabajando para que la décima edición de Gamergy cuente con la presencia de varios influencers, así como con alguna competición de Fortnite.</p>\r\n\r\n				 \r\n\r\n				<p>Por encima de todo, como decíamos, Gamergy se consolidará en su décima edición como el lugar de referencia para toda la comunidad gamer.</p>\r\n\r\n				 \r\n\r\n				<p><b>Gamergy planea dar el salto a Latinoamérica en 2019.</b>- Liga de Videojuegos Profesional aterrizó en Latinoamérica hace más de un año para desarrollar el talento y reforzar la escena de esports a nivel local. La organización de las competiciones nacionales de League of Legends y de Clash Royale en países como Argentina, Colombia o México, ha aportado estabilidad al ecosistema, en el que se han afianzado los clubes profesionales.</p>\r\n\r\n				 \r\n\r\n				<p>Coincidiendo con la aparición en 2019 de las ligas nacionales del juego de Riot Games y de Supercell, Liga de Videojuegos Profesional e IFEMA ya están trabajando para poder llevar dos Gamergy a América Latina a lo largo de 2019. El evento aspira a ser un punto de encuentro para la comunidad de esports de los países donde se celebre y, tal y como sucede en España, debería alojar las finales de las ligas nacionales de League of Legends y de Clash Royale.</p>\r\n\r\n				 \r\n\r\n				<p><b>Más puestos de juego, más diversión.</b>- Otro de los elementos destacados de la décima edición de Gamergy es que contará con más puestos de juego que nunca. Además de disfrutar de las distintas competiciones profesionales o semiprofesionales, todos los visitantes de Gamergy tendrán la ocasión de poner a prueba sus habilidades con un PC, una consola o un teléfono móvil entre las manos. Sin colas y sin esperas, Gamergy se posiciona también como un punto de encuentro para el público casual.</p>\r\n\r\n				 \r\n\r\n				<p><b>Sobre LVP</b>: Liga de Videojuegos Profesional (LVP) es uno de los mayores operadores de competiciones de videojuegos del mundo y la mayor organización de e-sports en lengua hispana. A través de sus sedes de Madrid, Barcelona, Buenos Aires, Bogotá, México y Londres se halla presente en más de 30 países. Opera las competiciones nacionales más prestigiosas (Superliga Orange en España, Circuitos Nacionales de Argentina, Chile y Perú), grandes torneos internacionales (Gamergy Masters, CR Nations Cup, Riot Open), plataformas de competición online (ArenaGG, Liga PlayStation) y distribuye en castellano eventos mundiales como la League of Legends Championship Series (c) o la Call of Duty (c) World League. Parte del Grupo MEDIAPRO, LVP proporciona además servicios de producción de eventos, publicidad y producción audiovisual, cubriendo todos los aspectos del ecosistema de los e-sports.</p>\r\n\r\n				 \r\n\r\n				<p><b>Sobre IFEMA</b>. IFEMA es el primer operador ferial de España y uno de los más importantes de Europa. Cuenta con 70 marcas propias y una cartera de 110 ferias y congresos en su calendario anual, entre las que destacan Fitur, ARCOmadrid, la Pasarela MBFWM y Fruit Attraction, posicionadas entre las primeras del mundo. Cada año, más de 33.000 empresas participan en sus ferias, que son visitadas por 3’5 millones de personas. Junto a la organización de ferias profesionales, también lidera las ferias  de público por su capacidad de  convocatoria y su atracción de visitantes de toda España Como operador global ha internacionalizado su actividad en Latinoamérica, Europa, África, y Ásia.</p>','https://twitter.com/gamergy?lang=es','https://es-es.facebook.com/gamergyes/'),(5,'Torneo Fortnite','https://areajugones.sport.es/wp-content/uploads/2019/06/Fortnite-12-810x400.jpg','Gamergy organiza el 2º torneo de Fortnite España','Gamergy','2019-06-22','21:30:00','https://areajugones.sport.es/wp-content/uploads/2019/06/Fortnite-12-810x400.jpg','Rubius | 2º Torneo Fortnite',NULL,NULL,'<p>A tan solo un día de la celebración del #StarsBattleRoyale que se celebrará en Gamergy ya conocemos a 96 de los jugadores que se subirán en el escenario. Este evento unirá a 100 influencers en un torneo de Fortnite y como no podía ser de otra forma contará con el organizador del del año pasado y con el creador de contenido más grande en nuestro país, ElRubius.</p>\r\n\r\n<p>Tan solo quedan cuatro jugadores por anunciar por lo que en este artículo os vamos a dejar los invitados confirmados en estos últimos días y también los 59 anteriores entre los que hay grandes youtubers como Grefg y Lolito y también de otras personalidades como los futbolistas Sergio Reguilón (Real Madrid) y Borja Iglesias (RCD Español).</p>\r\n\r\n<p>Os recordamos que las entradas aún están disponibles  y tienen un precio de 10 euros. Aunque lógicamente, para acceder al evento se necesitará también una entrada a Gamergy, la del viernes, día del torneo, cuesta 13 euros, lo que hace un total de 23 euros.</p>','https://twitter.com/gamergy?lang=es','https://es-es.facebook.com/gamergyes/'),(6,'Podcast \"Gamers Mal\"','https://i.blogs.es/5fbb05/56915023_294869501436822_504571579435421924_n/1024_2000.jpg','Ven como invitado al famoso podcast \"Gamers Mal\"','Phi Beta Lambda Podcast','2019-06-27','18:00:00','https://vignette.wikia.nocookie.net/animalcrossing/images/b/b8/Kevin_HD.png/revision/latest?cb=20180518165327','Porcinio, mascota del programa | Nintendo','','','<p>\"HOLA PUTOS GAMERS\" así empieza cada programa de podcast de la emergente casa de contenidos audiovisuales \"Phi Beta Lambda\". En esta ocasion, los locutores de este programa presentan una oportunidad para conocerlos en persona.</p>\r\n\r\n<p>Se han cobrado un hueco en el corazón del público gracias a intervenciones tan entrañables como divertidas de mano de una de las colaboradoras habituales, Cris. Esta mujer, una señora de mediana edad, es la mayor aficcionada al título de consolas de Nintendo \"Animal Crossing\". En cada programa hay una interacción con la agradable Cris, la que les descubre el mundo de animal crossing a los presentadores.</p>','https://twitter.com/gamers_mal','https://www.facebook.com/masgamers/'),(7,'Gamergy','https://esports.eldesmarque.com/wp-content/uploads/2019/05/Gamergy.jpg','Vuelve Gamergy mas fuerte que nunca','Gamergy','2019-06-21','21:00:00','http://www.gamergy.es/wp-content/uploads/2019/03/estadiop.jpg','Torneo LoL | Gamergy','https://d500.epimg.net/cincodias/imagenes/2017/12/14/companias/1513277809_844476_1513277971_noticia_normal.jpg','Estadio principal | Gamergy','La feria Gamergy 2019 comienza este viernes en Ifema, donde los eSports tomarán el ferial madrileño, con más de 33.000 metros cuadrados por y para los deportes electrónicos, en una muestra más del crecimiento y auge de este sector.\r\n\r\nSerán tres días frenéticos para todo gamer que se precie. Durante el Gamergy habrá diferentes campeonatos, de \"Fortnite\", \"League of Legends\" (LOL), \"FIFA19\", \"Call of Duty\", \"CSGO\" y otros videojuegos de competición, dentro del programa organizado por Ifema y la Liga de Videojuegos Profesional (LVP).\r\n\r\nEsta décima edición del Gamergy contará con espacios destinados a los torneos y un área con stands de las principales compañías del sector con puestos de juegos para probar sus últimos lanzamientos. Y es que se trata de la feria más importante en deportes electrónicos de España, que en su edición de 2018 llegó a los 50.000 asistentes.\r\n\r\n','https://twitter.com/gamergy?lang=es','https://es-es.facebook.com/gamergyes/');
+/*!40000 ALTER TABLE `evento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `palabrasProhibidas`
+--
+
+DROP TABLE IF EXISTS `palabrasProhibidas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `palabrasProhibidas` (
+  `palabra` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`palabra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `palabrasProhibidas`
+--
+
+LOCK TABLES `palabrasProhibidas` WRITE;
+/*!40000 ALTER TABLE `palabrasProhibidas` DISABLE KEYS */;
+INSERT INTO `palabrasProhibidas` VALUES ('benefactor'),('calzada'),('casa'),('cazador'),('chiquito'),('cigüeña'),('coche'),('cotelo'),('espaiderman'),('pepe'),('pepino'),('perro'),('profesor'),('spiderman');
+/*!40000 ALTER TABLE `palabrasProhibidas` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-06-22 17:03:39

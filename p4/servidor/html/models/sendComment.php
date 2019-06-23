@@ -1,5 +1,4 @@
 <?php
-
     // Una función sencilla para sacar la ip del lado cliente
     function getUserIpAddr(){
         if(!empty($_SERVER['HTTP_CLIENT_IP'])){
@@ -51,7 +50,7 @@
             mysqli_close($connection);
             // Esto es para que me devuelva a la página anterior y así dar la sensación de que todo bien
             //echo '<body onLoad="history.go(-1);">';
-            header("Location: /index.php?idEvento=$idEvento");
+            header("Location: /index.php?idEvento=$idEvento&comentarioEnviado=true");
 
 		}
     }

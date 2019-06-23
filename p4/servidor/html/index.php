@@ -36,6 +36,21 @@
         $idEvento = $_GET['print'];
     }
 
+    // Si login=true -> carga la versión para loguearse en el sistema
+    $isLoggingIn = false;
+    if (isset($_GET['login']) && $_GET['login']) {
+        $isLoggingIn = true;
+    }
+    // Si register=true -> carga la versión para registrarse en el sistema
+    $isRegisterIn = false;
+    if (isset($_GET['register']) && $_GET['register']) {
+        $isRegisterIn = true;
+    }
+
+    if (isset($_GET['comentarioEnviado']) && $_GET['comentarioEnviado'] == true) {
+        echo "<script type=\"text/javascript\">alert(\"Comentario enviado y almacenado correctamente :D\");</script>";  
+    }
+
     // Cualquier otra cosa -> index.php
 
     /********************************************************************************************/
@@ -103,13 +118,15 @@
                 V1: Vector con la información de un evento concreto
     */
     // Como prueba por ahora, paso todos los objetos en bruto
+    // Como extra, imprime un alert si un comentario enviado ha sido bien enviado
+
     $_GET['idEvento'] = $idEvento;
     $_GET['eventos'] = $eventos;
     $_GET['evento'] = $evento;
     $_GET['comentarios'] = $comentariosEvento;
     $_GET['etiquetas'] = $etiquetas;
     $_GET['imprimir'] = $imprime;
-    include("controllers/bodyGenerator.php");    
+    include("controllers/bodyGenerator.php"); 
 ?>
 
 </html>
