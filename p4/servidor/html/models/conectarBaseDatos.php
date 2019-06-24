@@ -47,7 +47,6 @@
             $eventos = array ($numFilas);
 
             while ($fila = $resultado->fetch_assoc()) {
-
                 array_push($eventos,$fila['idEvento'], $fila['nombreMiniatura'], $fila['fotoMiniatura']);
             }
 

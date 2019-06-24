@@ -7,6 +7,13 @@
     /*  Aquí se van a incluir las clases que sean necesarias 
     */
     require("models/conectarBaseDatos.php");
+    include_once 'class/usuario.php';
+    include_once 'class/userSession.php';
+    include_once 'models/modeloUsuarios.php';
+
+
+    $userSession = new UserSession();
+    $user = new Usuario();
 
     /********************************************************************************************/
 
@@ -37,18 +44,56 @@
     }
 
     // Si login=true -> carga la versión para loguearse en el sistema
-    $isLoggingIn = false;
-    if (isset($_GET['login']) && $_GET['login']) {
-        $isLoggingIn = true;
+    if (isset($_GET['login'])) {
+        $isLoggingIn = $_GET['login'];
     }
     // Si register=true -> carga la versión para registrarse en el sistema
-    $isRegisterIn = false;
-    if (isset($_GET['register']) && $_GET['register']) {
+    if (isset($_GET['register']) && $_GET['register'] == true) {
         $isRegisterIn = true;
     }
+    // Si el usuario quiere acceder a la administración del perfil
+    if (isset($_GET['profileAdmin']) && $_GET['profileAdmin'] == true) {
+        $profileAdmin = true;
+    }
 
-    if (isset($_GET['comentarioEnviado']) && $_GET['comentarioEnviado'] == true) {
-        echo "<script type=\"text/javascript\">alert(\"Comentario enviado y almacenado correctamente :D\");</script>";  
+    if (isset($_GET['comentarioEnviado'])) {
+        if( $_GET['comentarioEnviado'] == 0 ){
+            echo "<script type=\"text/javascript\">alert(\"Comentario enviado y almacenado correctamente :D\");</script>";  
+        }else{
+            echo "<script type=\"text/javascript\">alert(\"Ha habido un fallo enviando el comentario. Inténtalo de nuevo en un rato.\");</script>";
+        }
+        
+    }
+
+
+    // Comprobaciones para la sesión de usuario
+    if (isset($_GET['logout'])) {
+        //$userSession = new UserSession();
+        $userSession->closeSession();
+
+        header("location: /index.php");
+    }
+    if(isset($_SESSION['user'])){
+        // Este mensaje es de prueba solo
+        //echo "Hay sesión";
+        echo $userSession->getCurrentUser()->toString();
+    }else if(isset($_POST['login']) && isset($_POST['formularioLogin'])){
+        $pruebaLogin = $_POST['login'];
+
+        $userForm = $pruebaLogin[0];
+        $passForm = $pruebaLogin[1];
+
+        if($user->userExist($userForm, $passForm)){
+            // Esto hace que podamos almacenar los datos del usuario de manera local, y así no colapsar las peticiones a BD y al servidor
+            $user->setUser($userForm);
+            $userSession->setCurrentUser($user);
+            header("Location: /index.php");
+        }else{
+            // Si hemos llegado aquí es que el usuario y/o contraseña no son buenos, se envia de nuevo a la pantalla de login
+            header("Location: /index.php?login=0");
+        }
+    }else{
+        echo "No hay sesión";
     }
 
     // Cualquier otra cosa -> index.php
@@ -125,7 +170,6 @@
     $_GET['evento'] = $evento;
     $_GET['comentarios'] = $comentariosEvento;
     $_GET['etiquetas'] = $etiquetas;
-    $_GET['imprimir'] = $imprime;
     include("controllers/bodyGenerator.php"); 
 ?>
 

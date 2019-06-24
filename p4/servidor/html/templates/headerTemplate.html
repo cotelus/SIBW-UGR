@@ -11,7 +11,16 @@
                 <ul id="header-menu">
                     <li class="menu-item"><a href="index.php">Principal</a></li>
                     <li class="menu-item"><a href="html/contacto.html">Contacto</a></li>
-                    <li class="menu-item"><a href="index.php?login=true">Iniciar Sesión</a></li>
+                    {% if users %}
+                        <ul>
+                            {% for user in users %}
+                                <li>{{ user.username|e }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <li class="menu-item"><a href="index.php?login=1">Iniciar Sesión</a></li>
+                    <li class="menu-item"><a href="index.php?logout">Cerrar sesión</a></li>
+                    <li class="menu-item"><a href="index.php?profileAdmin=1">Administrar Perfil</a></li>
                 </ul>
             </nav>
         </div>

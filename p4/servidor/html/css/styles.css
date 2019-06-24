@@ -566,3 +566,56 @@ ESTILOS barra de etiquetas
 .tag a{
     color: #878787;
 }
+
+/* 
+    ESTILOS PARA EL FORMULARIO DE INICIO DE SESION Y REGISTRO
+*/
+input{
+    border: none;
+}
+
+.login-register{
+    margin-left: 20%;
+    background-color: #f3f3f3;
+    min-width: 50%;
+    padding: 10px;
+}
+
+.form-box{
+    height: 2rem;
+    min-width: 100%;
+    border: none;
+    border-bottom: solid;
+    border-width: 1px;
+    border-bottom-color: orange;
+    background-color: #f3f3f3;
+    color: #333333;
+}
+
+.form-box:focus{
+    color: #333333;
+    outline: 0;
+    background-color: #b9b0b0b6;
+    border-width: 3px;
+}
+
+.end-lane-form{
+    padding: 10px;
+    display:block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.end-lane-form-a{
+    font-size: bold !important;
+    display:block;
+    margin-top: 10px;
+    color: orange !important;
+}
+
+.button-form{
+    height: 2rem;
+    min-width: 100%;
+    font-size: 1.1rem;
+    background: rgba(255, 166, 0, 0.507);
+}
